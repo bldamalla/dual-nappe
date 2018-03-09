@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Conic Blitz</title>
+	<!--add bootstrap-->
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<!-- MathJAX -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+	<script src="main.js"></script>
+
+	<style type="text/css">
+		.container {
+			margin-top: 15px;
+		}
+		.jumbotron {
+			text-align: center;
+		}
+		.content-body {
+			margin-top: 6em;
+			text-align: center;
+		}
+		.content-body > div {
+			margin: 20px 0 20px 0;
+		}
+		.modal {
+			font-size: 80%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Conic Blitz!</h1>
+			<p>This project is presented to you by Block H 2019 Group 1 (Alcazar, Amalla, De Belen, Diaz, Feliciano, Oliveros)</p>
+		</div>
+		<div class="content-body">
+			<div id="timer">
+				<h3 id="timer-togg">2:0:0</h3>
+				<button class="btn btn-success" data-toggle="modal" data-target="#start_m" id="start_b">Start</button>
+				<button class="btn btn-danger disabled" id="end_g">End</button>
+			</div>
+			<div>
+				<p id="question"></p>
+			</div>
+			<div>
+				<p id="equation"></p>
+			</div>
+			<div id="form">
+				<div class="form-group">
+					<label for="ans">Answer:</label>
+					<input type="text" class="form-control" id="ans">
+				</div>
+				<button class="btn btn-primary disabled" id="submit">Submit</button>
+				<p id="score"></p>
+			</div>
+		</div>
+
+		<div id="start_m" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Conic Blitz | Start</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<h5>Prompt</h5>
+						<p>Do you want to start the game?</p>
+						<p>Please note that the timer shows you the time in minutes, seconds, and milliseconds.</p>
+						<p>Have fun!</p>
+					</div>
+					<div class="modal-footer">
+						<button id="start_a" class="btn btn-success" data-dismiss="modal">Continue</button>
+						<button class="btn" data-dismiss="modal">Exit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dual Nappe</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<!--add bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+
+	<script type="text/javascript"></script>
+
+	<style type="text/css">
+		.table-striped {
+			text-align: center;
+		}
+		.container {
+			margin-top: 15px;
+		}
+		.jumbotron {
+			text-align: center;
+		}
+		.content-body {
+			text-align: center;
+			margin-top: 6em;
+		}
+		a > .btn > h3 {
+			color: white;
+			text-align: center;
+		}
+		.modal-body {
+			padding: 15px;
+			font-size: 80%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Check your understanding!</h1>
+			<p>This project is presented to you by Block H 2019 Group 1 (Alcazar, Amalla, De Belen, Diaz, Feliciano, Oliveros)</p>
+		</div>
+		<!-- alert the player first of the rules of the game
+		the player is given 2 min to solve the shit on the thing
+		the problems are randomly generated and are checked internally
+		if player gets a thing right, 2 secs is added to timer
+		else time decreases by 1s
+		answers should be correct to one decimal place
+		prompt if the player is ready -->
+		<div class="content-body">
+			<div class="row">
+				<div class="col-md-12">
+					<button class="btn btn-danger" id="blitz" data-toggle="modal" data-target="#blitz-md">
+						<h3>Conic Blitz</h3>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="blitz-md" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Conic Blitz</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<h5>Description</h5>
+					<p>The following is a fast paced game wherein the player is to answer a series of questions regarding conic sections and some important parts and measures. The player is expected to calculate the following:</p>
+					<table class="table-striped">
+						<thead>
+							<tr>
+								<th>Parabola</th>
+								<th>Ellipse</th>
+								<th>Hyperbola</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Latus Rectum Length</td>
+								<td>Latus Rectum Length</td>
+								<td>Latus Rectum Length</td>
+							</tr>
+							<tr>
+								<td>F to V</td>
+								<td>F to C</td>
+								<td>F to C</td>
+							</tr>
+							<tr>
+								<td>Vertex Coordinates</td>
+								<td>Center Coordinates</td>
+								<td>Center Coordinates</td>
+							</tr>
+							<tr>
+								<td>Eccentricity</td>
+								<td>Eccentricity</td>
+								<td>Eccentricity</td>
+							</tr>
+						</tbody>
+					</table>
+					<br><br>
+					<h5>Important Rules</h5>
+					<p>Given a grand timer with 2 mins initial time, solve as many problems as possible! Each correct answer will merit you another 2 secs to solve. Each incorrect answer will demerit you 1 sec to solve.</p>
+					<p>Have fun!</p>
+				</div>
+				<div class="modal-footer">
+					<a href="blitz/index.html"><button class="btn btn-success">Continue</button></a>
+					<button class="btn" data-dismiss="modal">Exit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
