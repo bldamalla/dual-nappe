@@ -14,6 +14,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 	<script src="main.js"></script>
+	<script src="../conic.js"></script>
 
 	<style type="text/css">
 		.container {
@@ -31,6 +32,9 @@
 		}
 		.modal {
 			font-size: 80%;
+		}
+		.row {
+			margin: 15px;
 		}
 	</style>
 </head>
@@ -54,11 +58,26 @@
 				<p id="equation"></p>
 			</div>
 			<div id="form">
-				<div class="form-group">
-					<label for="ans">Answer:</label>
-					<input type="text" class="form-control" id="ans">
+				<div class="row">
+					<div class="col-sm-4"></div>
+					<div class="col-sm-2">
+						<button class="choice btn btn-outline-primary disabled" id="A">Lorem ipsum</button>
+					</div>
+					<div class="col-sm-2">
+						<button class="choice btn btn-outline-primary disabled" id="B">Lorem ipsum</button>
+					</div>
+					<div class="col-sm-4"></div>
 				</div>
-				<button class="btn btn-primary disabled" id="submit">Submit</button>
+				<div class="row">
+					<div class="col-sm-4"></div>
+					<div class="col-sm-2">
+						<button class="choice btn btn-outline-primary disabled" id="C">Lorem ipsum</button>
+					</div>
+					<div class="col-sm-2">
+						<button class="choice btn btn-outline-primary disabled" id="D">Lorem ipsum</button>
+					</div>
+					<div class="col-sm-4"></div>
+				</div>
 				<p id="score"></p>
 			</div>
 		</div>
