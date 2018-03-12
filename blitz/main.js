@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var n = 0;
 	var c = rand_conic(); // starting conic
 	var c_ans = c.choices_ans;
-	var t = 2*60*1000;
+	var t = 1*60*1000;
 
 	// start the game
 	$("#start_a").click(function(){
