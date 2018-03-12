@@ -2,6 +2,7 @@
 
 $(document).ready(function(){
 	var n = 0;
+	var sB = 0;
 	var c = rand_conic(); // starting conic
 	var c_ans = c.choices_ans;
 	var t = 2*60*1000;
@@ -11,6 +12,7 @@ $(document).ready(function(){
 		if ($(this).hasClass("disabled")) {
 				return;
 		}
+		$(".jumbotron").toggleClass("collapse");
 		$("#start_b").addClass("disabled");
 		$(".choice").removeClass("disabled");
 		$("#end_g").removeClass("disabled");
@@ -33,6 +35,7 @@ $(document).ready(function(){
 
 		// render math equations
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("equation")]);
+		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("score")]);
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementsByClassName("choice")]);
 		
 		// timer thing
@@ -45,14 +48,17 @@ $(document).ready(function(){
 
 			if (t < 0){
 				clearInterval(v);
+				$("#timer-togg").text("0:0:0");
 				$(".choice").addClass("disabled");
 				$("#end_g").addClass("disabled");
+				$(".jumbotron").toggleClass("collapse");
 			}
 
 			$("#end_g").click(function(){
 				if ($(this).hasClass("disabled")) {
 					return;
 				}
+				$(".jumbotron").toggleClass("collapse");
 				clearInterval(v);
 				$(this).addClass("disabled");
 				$(".choice").addClass("disabled");
@@ -73,11 +79,13 @@ $(document).ready(function(){
 		if (ind == c_ans[1]) {
 			// correct
 			t += 2000;
-			n++;
+			n += sB*(sB+1)+1;
+			sB++;
 			$("#score").html("Score: " + n.toString());
 		}
 		else {
 			// incorrect
+			sB = 0;
 			t -= 1000;
 		}
 
@@ -97,6 +105,7 @@ $(document).ready(function(){
 		$("#D").text(c_ans[0][3]);
 
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("equation")]);
+		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("score")]);
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementsByClassName("choice")]);
 	});
 

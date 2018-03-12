@@ -62,8 +62,8 @@ class Conic {
 				// this is for position
 				var choices = [
 				"$$("+this.h+","+this.k+")$$",
-				"$$("+ -this.h +","+ -this.k +")$$",
-				"$$("+ this.k +","+ -this.h +")$$",
+				"$$("+ (this.h != 0 ? -this.h : "x") +","+ -this.k +")$$",
+				"$$("+ this.k +","+ (this.h != 0 ? -this.h : "y") +")$$",
 				"Degenerate"];
 				return knuth(choices, 0);
 				break;
@@ -74,14 +74,14 @@ class Conic {
 					var choices = [
 					"$$"+Math.abs(this.lr)+"$$",
 					"$$"+m_round(Math.abs(this.lr)/4)+"$$",
-					"$$"+this.lr < 0 ? this.lr : (this.lr)/2 +"$$",
+					"$$"+ (this.lr < 0 ? this.lr : (this.lr)/2) +"$$",
 					"Degenerate"];
 					return knuth(choices, 0)
 				}
 				else {
 					var choices = [
 					"$$"+2*m_round(Math.pow(this.b,2)/this.a)+"$$",
-					"$$"+2*m_round(Math.pow(this.b,1)/this.a)+"$$",
+					"$$"+2*m_round(Math.pow(this.b == 1 ? this.b/2 : this.b,1)/this.a)+"$$",
 					"$$"+2*m_round(Math.pow(this.a,2)/this.b)+"$$",
 					"Degenerate"];
 					return knuth(choices, 0);
