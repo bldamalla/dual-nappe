@@ -22,10 +22,18 @@
       padding-top: 10px;
       padding-bottom: 10px;
     }
+    .content {
+      padding: 20px;
+    }
+    #info {
+      background-color: white;
+      width: 100%;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body background="assets/grid.svg">
-  <div class="mdl-layout mdl-layout-js">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
         <span class="mdl-layout-title">Dual Nappe</span>
@@ -41,8 +49,8 @@
 
   <div class="mdl-layout-content">
     <div class="mdl-grid">
-      <div class="mdl-cell mdl-cell-1"></div>
-      <div class="mdl-cell mdl-cell-10" id="main">
+      <div class="mdl-cell mdl-cell--3-col"></div>
+      <div class="mdl-cell mdl-cell--6-col" id="main">
         <div class="big-card mdl-card mdl-shadow--2dp">
           <div class="mdl-card__title">
             <!-- card head -->
@@ -59,8 +67,64 @@
             <a href="blitz/" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Play Conic Blitz</a>
           </div>
         </div>
+
+        <div id="info" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-shadow--2dp">
+          <div class="mdl-tabs__tab-bar">
+            <a href="#learn" class="mdl-tabs__tab is-active">Learn Conic</a>
+            <a href="#blitz" class="mdl-tabs__tab">Conic Blitz</a>
+          </div>
+
+          <div class="mdl-tabs__panel is-active" id="learn">
+            <div class="content">
+              <h4>Learn Conic</h4>
+              <p>This section will guide you through conic sections and important related measures. Content here should've been taught in <em>Elementary Analytical Geometry</em>. For short, it just contains lecture notes.</p>
+              <p><em>TRIVIA!</em> There are also trivias about cones and conic sections.</p>
+            </div>
+          </div>
+
+          <div class="mdl-tabs__panel" id="blitz">
+            <div class="content">
+              <h4>Conic Blitz</h4>
+              <p>The following is a fast-paced game wherein the player solves a series of problems involving conic sections and important measures as much as possible under a grand time of 60 seconds.</p>
+              <p>By going to the this section, the players must be knowledgeable on <em>how</em> to calculate the measures given in the following table.</p>
+
+              <center><table class="mdl-data-table mdl-shadow--2dp">
+                <thead>
+                  <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Parabola</th>
+                    <th class="mdl-data-table__cell--non-numeric">Ellipse</th>
+                    <th class="mdl-data-table__cell--non-numeric">Hyperbola</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Latus Rectum Length</td>
+                    <td class="mdl-data-table__cell--non-numeric">Latus Rectum Length</td>
+                    <td class="mdl-data-table__cell--non-numeric">Latus Rectum Length</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Focus Coordinates</td>
+                    <td class="mdl-data-table__cell--non-numeric">Foci Coordinates</td>
+                    <td class="mdl-data-table__cell--non-numeric">Foci Coordinates</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Vertex Coordinates</td>
+                    <td class="mdl-data-table__cell--non-numeric">Center Coordinates</td>
+                    <td class="mdl-data-table__cell--non-numeric">Center Coordinates</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Eccentricity</td>
+                    <td class="mdl-data-table__cell--non-numeric">Eccentricity</td>
+                    <td class="mdl-data-table__cell--non-numeric">Eccentricity</td>                
+                  </tr>
+                </tbody>
+              </table></center><br>
+              <p>The question type is multiple choice. <em>Choose the best answer among the given choices.</em> Each correct answer will merit the player 2 additional seconds of answering while each incorrect answer will demerit the player 1 second of answering.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="mdl-cell mdl-cell-1"></div>
+      <div class="mdl-cell mdl-cell--3-col"></div>
     </div>
   </div>
 </body>
