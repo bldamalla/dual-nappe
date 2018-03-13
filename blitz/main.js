@@ -75,7 +75,7 @@ $(document).ready(function(){
 		ind = $(this).attr("id").charCodeAt(0)-65;
 		if (ind == c_ans[1]) {
 			// correct
-			t += 2000; n+=100;
+			n+=100;
 			n = n+(0.4*sB*sB+sB)*100; sB++;
 			$("#score").html(n.toString());
 			$("#checker").animate({backgroundColor: "#00D626"}, 200);
