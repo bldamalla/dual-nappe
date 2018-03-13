@@ -45,12 +45,24 @@ $(document).ready(function(){
 				clearInterval(v);
 				$(".choice").prop("disabled", true);
 				$("#end_game").prop("disabled", true);
+				$("#question").text("Lorem ipsum");
+				$("#equation").text("Lorem ipsum");
+				$("#A").text("Lorem ipsum");
+				$("#B").text("Lorem ipsum");
+				$("#C").text("Lorem ipsum");
+				$("#D").text("Lorem ipsum");
 			}
 
 			$("#end_game").click(function(){
 				clearInterval(v);
 				$(this).prop("disabled", true);
 				$(".choice").prop("disabled", true);
+				$("#question").text("Lorem ipsum");
+				$("#equation").text("Lorem ipsum");
+				$("#A").text("Lorem ipsum");
+				$("#B").text("Lorem ipsum");
+				$("#C").text("Lorem ipsum");
+				$("#D").text("Lorem ipsum");
 			});
 		}, 10);
 		// end game later

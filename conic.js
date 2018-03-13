@@ -74,7 +74,7 @@ class Conic {
           var choices = [
           "$$"+Math.abs(this.lr)+"$$",
           "$$"+m_round(Math.abs(this.lr)/4)+"$$",
-          "$$"+ (this.lr < 0 ? this.lr : (this.lr)/2) +"$$",
+          "$$"+ this.lr*4 +"$$",
           "Degenerate"];
           return knuth(choices, 0)
         }
