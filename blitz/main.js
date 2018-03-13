@@ -1,20 +1,17 @@
-// HTML controller
-
 $(document).ready(function(){
-	var n = 0;
+	var n = 0; var sB = 0;
 	var c = rand_conic(); // starting conic
 	var c_ans = c.choices_ans;
 	var t = 1*60*1000;
 
 	// start the game
-	$("#start_a").click(function(){
+	$("#start_game").click(function(){
 		if ($(this).hasClass("disabled")) {
 				return;
 		}
-		$("#start_b").addClass("disabled");
-		$(".choice").removeClass("disabled");
-		$("#end_g").removeClass("disabled");
-		$(this).addClass("disabled");
+		$(".choice").prop("disabled", false);
+		$("#end_game").prop("disabled", false);
+		$(this).prop("disabled", true);
 
 		// edit
 		$("#equation").html(c.std_eqn);
@@ -29,10 +26,11 @@ $(document).ready(function(){
 		$("#C").text(c_ans[0][2]);
 		$("#D").text(c_ans[0][3]);
 
-		$("#score").html("Score: " + n.toString());
+		$("#score").html(n.toString());
 
 		// render math equations
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("equation")]);
+		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("score")]);
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementsByClassName("choice")]);
 		
 		// timer thing
@@ -45,17 +43,14 @@ $(document).ready(function(){
 
 			if (t < 0){
 				clearInterval(v);
-				$(".choice").addClass("disabled");
-				$("#end_g").addClass("disabled");
+				$(".choice").prop("disabled", true);
+				$("#end_game").prop("disabled", true);
 			}
 
-			$("#end_g").click(function(){
-				if ($(this).hasClass("disabled")) {
-					return;
-				}
+			$("#end_game").click(function(){
 				clearInterval(v);
-				$(this).addClass("disabled");
-				$(".choice").addClass("disabled");
+				$(this).prop("disabled", true);
+				$(".choice").prop("disabled", true);
 			});
 		}, 10);
 		// end game later
@@ -64,21 +59,23 @@ $(document).ready(function(){
 	// when the player answers
 	$(".choice").click(function(){
 		// if correct then increase time 2 secs
-		if ($(this).hasClass("disabled")) {
-			console.log("thing");
-			return;
-		}
 
 		ind = $(this).attr("id").charCodeAt(0)-65;
 		if (ind == c_ans[1]) {
 			// correct
-			t += 2000;
-			n++;
-			$("#score").html("Score: " + n.toString());
+			t += 2000; n+=100;
+			n = n+(0.4*sB*sB+sB)*100; sB++;
+			$("#score").html(n.toString());
+			$("#checker").animate({backgroundColor: "#00D626"}, 200);
+			$("#checker").animate({backgroundColor: "white"}, 200);
 		}
 		else {
 			// incorrect
+			sB = 0;
 			t -= 1000;
+			sB = 0;
+			$("#checker").animate({backgroundColor: "#FF4F47"}, 200);
+			$("#checker").animate({backgroundColor: "white"}, 200);
 		}
 
 		// finally change the question
@@ -97,13 +94,7 @@ $(document).ready(function(){
 		$("#D").text(c_ans[0][3]);
 
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("equation")]);
+		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("score")]);
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementsByClassName("choice")]);
-	});
-
-	// extra control flow
-	$("#start_b").click(function(){
-		if ($(this).hasClass("disabled")) {
-			return;
-		}
 	});
 });
