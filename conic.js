@@ -53,7 +53,7 @@ class Conic {
         return "$$\\dfrac{(y"+ (this.k > 0 ? "-" : "+") + Math.abs(this.k) + ")^2}{"+this.a+"^2} - \\dfrac{(x"+(this.h > 0 ? "-" : "+")+Math.abs(this.h)+")^2}{"+this.b+"^2} = 1$$"
     }
   }
-
+  
   // solve the conic
   // is the thing to solve : Position, Latus Rectum, 
   get choices_ans() {

@@ -30,6 +30,7 @@ $(document).ready(function(){
 
 		// render math equations
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("equation")]);
+		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("score")]);
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementsByClassName("choice")]);
 		
 		// timer thing
@@ -70,6 +71,7 @@ $(document).ready(function(){
 		}
 		else {
 			// incorrect
+			sB = 0;
 			t -= 1000;
 			sB = 0;
 			$("#checker").animate({backgroundColor: "#FF4F47"}, 200);
@@ -92,6 +94,7 @@ $(document).ready(function(){
 		$("#D").text(c_ans[0][3]);
 
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("equation")]);
+		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementById("score")]);
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub,document.getElementsByClassName("choice")]);
 	});
 });
