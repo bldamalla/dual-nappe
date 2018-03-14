@@ -12,7 +12,6 @@ var trivia = [
 {
 	'title': 'Etymologists',
 	'text': 'Perga coined the names of the different conics, thus giving them Greek etymologies. Parabola derives from parabola - meaning applied, ellipse derives from ellipsis - meaning deficit, and the hyperbola derives from hyperbola - meaning excess.',
-	'link': ['https://www.etymonline.com/word/ellipse', 'https://www.etymonline.com/word/parabola', 'https://www.etymonline.com/word/hyperbola']
 },
 {
 	'title': 'Orbital Origins',

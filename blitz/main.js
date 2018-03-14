@@ -85,7 +85,6 @@ $(document).ready(function(){
 			// incorrect
 			sB = 0;
 			t -= 1000;
-			sB = 0;
 			$("#checker").animate({backgroundColor: "#FF4F47"}, 200);
 			$("#checker").animate({backgroundColor: "white"}, 200);
 		}

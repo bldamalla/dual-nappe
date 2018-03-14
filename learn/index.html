@@ -10,20 +10,43 @@
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css">
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <script type="text/javascript" src="../assets/trivia.js"></script>
+  <script type="text/javascript" src="../assets/cone-parts.js"></script>
+  <script type="text/javascript" src="../assets/ellipse.js"></script>
+  <script type="text/javascript" src="../assets/parabola.js"></script>
+  <script type="text/javascript" src="../assets/hyperbola.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 
   <style type="text/css">
   	#main {
-  		margin-top: 10vh;
+  		margin-top: 15vh;
   		text-align: center;
   	}
-  	#content {
+  	#tab-bar {
   		background-color: white;
+      border-radius: 5px;
   	}
-  	.tab-content {
-  		padding: 5%;
-  	}
+    .card-like {
+      background-color: white;
+      margin: 3vh 0 3vh 0;
+      padding: 10px;
+      border-radius: 10px;
+      width: 100%;
+    }
+    .mdl-grid > div {
+      text-align: left;
+      padding: 0 5px 0 5px;
+    }
+    .mdl-grid > .mdl-cell--4-col {
+      color: gray;
+      text-align: right;
+    }
+    p {
+      color: gray;
+    }
   </style>
 </head>
 <body background="../assets/grid.svg">
@@ -45,35 +68,143 @@
   	<div class="mdl-grid">
   		<div class="mdl-cell--2-col"></div>
   		<div class="mdl-cell--8-col" id="main">
-  			<div id="content" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-shadow--2dp">
-  				<div class="mdl-tabs__tab-bar">
+  			<div id="content" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" ng-app="learn-app">
+  				<div class="mdl-tabs__tab-bar mdl-shadow--2dp" id="tab-bar">
   					<a href="#thing" class="mdl-tabs__tab is-active">Home</a>
-  					<a href="#" class="mdl-tabs__tab">Conics</a>
-  					<a href="#" class="mdl-tabs__tab">Ellipse</a>
-  					<a href="#" class="mdl-tabs__tab">Hyperbola</a>
-  					<a href="#" class="mdl-tabs__tab">Parabola</a>
+  					<a href="#conics" class="mdl-tabs__tab">Conics</a>
+  					<a href="#ellipse" class="mdl-tabs__tab">Ellipse</a>
+  					<a href="#hyperbola" class="mdl-tabs__tab">Hyperbola</a>
+            <a href="#parabola" class="mdl-tabs__tab">Parabola</a>
+  					<a href="#trivia" class="mdl-tabs__tab">Trivia</a>
   				</div>
 
   				<div class="mdl-tabs__panel is-active" id="thing">
-  					<div class="tab-content">
-  						<h3>Click on the other tabs to view relevant content!</h3>
-  						<p>Have fun learning!</p>
-  						<p>This section is under development. Please try again soon!</p>
-  					</div>
+            <div class="mdl-grid">
+              <div class="mdl-cell--2-col"></div>
+              <div class="mdl-cell--8-col">
+                <div class="card-like mdl-shadow--2dp">
+                  <h3>Click on the other tabs to view relevant content!</h3>
+                  <p>Have fun learning!</p>
+                </div>
+              </div>
+              <div class="mdl-cell--2-col"></div>
+            </div>
   				</div>
+
   				<div class="mdl-tabs__panel" id="conics">
-  					<div class="tab-content">
-  						<h2>General Conic Terms</h2>
-  						<img src="">
+  					<div ng-controller="part-ctrl">
+              <div class="mdl-grid">
+                <div class="mdl-cell--2-col"></div>
+                <div class="mdl-cell--8-col">
+                  <div class="card-like mdl-shadow--2dp">
+                    <h3>General Conics Terms</h3><hr>
+                    <p>Conics are everywhere! Here are some terms for an introduction to cones and conic sections.</p>
+                  </div>
+                  <div class="card-like mdl-shadow--2dp">
+                    <div class="mdl-grid" ng-repeat="part in parts">
+                      <div class="mdl-cell--4-col">{{part.name}}</div>
+                      <div class="mdl-cell--8-col">{{part.desc}}</div>
+                    </div>
+                  </div>
+                  <div class="mdl-cell--2-col"></div>
+                </div>
+              </div>
   					</div>
   				</div>
-  				<div class="mdl-tabs__panel" id="ellipse"></div>
-  				<div class="mdl-tabs__panel" id="hyperbola"></div>
-  				<div class="mdl-tabs__panel" id="parabola"></div>
-  			</div>
-  		</div>
-  		<div class="mdl-cell--2-col"></div>
-	  	</div>
+
+  				<div class="mdl-tabs__panel" id="ellipse" ng-controller="ellipse-ctrl">
+            <div class="mdl-grid">
+              <div class="mdl-cell--2-col"></div>
+              <div class="mdl-cell--8-col">
+                <div class="card-like mdl-shadow--2dp">
+                  <h3>Ellipse</h3><hr>
+                  <p>An ellipse is the section formed by a cutting plane intersecting all generators of a cone.</p>
+                </div> 
+                <center><img src="../assets/ellipse.png" height="250px"></center>
+                <div class="card-like mdl-shadow--2dp">
+                  <h3>Definitions</h3><hr>
+                  <div class="mdl-grid" ng-repeat="def in defs">
+                    <div class="mdl-cell--4-col">{{def.name}}</div>
+                    <div class="mdl-cell--8-col">{{def.defn}}</div>
+                  </div>
+                </div>
+                <div class="card-like mdl-shadow--2dp">
+                  <h3>Equations and Formulae</h3><hr>
+                  <div class="mdl-grid" ng-repeat="eqn in eqns">
+                    <div class="mdl-cell--4-col">{{eqn.name}}</div>
+                    <div class="mdl-cell--8-col">{{eqn.frm}}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mdl-cell--2-col"></div>
+            </div>
+          </div>
+
+  				<div class="mdl-tabs__panel" id="hyperbola" ng-controller="hyperbola-ctrl">
+            <div class="mdl-grid">
+              <div class="mdl-cell--2-col"></div>
+              <div class="mdl-cell--8-col">
+                <div class="card-like mdl-shadow--2dp">
+                  <h3>Hyperbola</h3><hr>
+                  <p>A hyperbola is the section formed by a cutting plane parallel to the principal axis.</p>
+                </div>
+                <center><img src="../assets/hyperbola.png" height="250px"></center>
+                <div class="card-like mdl-shadow--2dp" ng-controller="hyperbola-ctrl">
+                  <h3>Definitions</h3><hr>
+                  <div class="mdl-grid" ng-repeat="def in defs">
+                    <div class="mdl-cell--4-col">{{def.name}}</div>
+                    <div class="mdl-cell--8-col">{{def.defn}}</div>
+                  </div>
+                </div>
+                <div class="card-like mdl-shadow--2dp">
+                  <h3>Equations and Formulae</h3><hr>
+                  <div class="mdl-grid" ng-repeat="eqn in eqns">
+                    <div class="mdl-cell--4-col">{{eqn.name}}</div>
+                    <div class="mdl-cell--8-col">{{eqn.frm}}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mdl-cell--2-col"></div>
+            </div>    
+          </div>
+          <div class="mdl-tabs__panel" id="parabola" ng-controller="parabola-ctrl">
+            <div class="mdl-grid">
+              <div class="mdl-cell--2-col"></div>
+              <div class="mdl-cell--8-col">
+                <div class="card-like mdl-shadow--2dp">
+                  <h3>Definitions</h3><hr>
+                  <div class="mdl-grid" ng-repeat="def in defs">
+                    <div class="mdl-cell--4-col">{{def.name}}</div>
+                    <div class="mdl-cell--8-col">{{def.defn}}</div>
+                  </div>
+                </div>
+                <div class="card-like mdl-shadow--2dp">
+                  <h3>Equations and Formulae</h3><hr>
+                  <div class="mdl-grid" ng-repeat="eqn in eqns">
+                    <div class="mdl-cell--4-col">{{eqn.name}}</div>
+                    <div class="mdl-cell--8-col">{{eqn.frm}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mdl-tabs__panel" id="trivia" ng-controller="trivia-ctrl">
+            <div class="card-like mdl-shadow--2dp" ng-repeat="triv in trivia">
+              <h3>{{triv.title}}</h3>
+              <p>{{triv.text}}</p>
+              <a href="{{triv.link}}">{{triv.link}}</p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="mdl-cell--2-col"></div>
+      </div>    
+    </div>
+    </div>
+		</div>
+	 </div>
+  	<div class="mdl-cell--2-col"></div>
+  	</div>
   </div>
 </body>
 </html>
